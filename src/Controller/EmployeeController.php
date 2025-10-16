@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\DTO\EmployeeDTO;
+use App\Dto\EmployeeDto;
 use App\Service\EmployeeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +28,7 @@ final class EmployeeController extends AbstractController {
             return $this->json(['error' => 'Niepoprawne dane wejściowe - firstName, lastName'], JsonResponse::HTTP_BAD_REQUEST);
         }
 
-        $dto = new EmployeeDTO($data['firstName'], $data['lastName']);
+        $dto = new EmployeeDto($data['firstName'], $data['lastName']);
         $employee = $this->employeeService->createEmployee($dto);
 
         return $this->json(['response' => ['id' => $employee->getId()]], JsonResponse::HTTP_CREATED);

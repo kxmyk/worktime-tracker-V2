@@ -1,0 +1,4 @@
+parameters:
+  work_time.hourly_rate: 20
+  work_time.overtime_multiplier: 2.0
+  work_time.monthly_norm_hours: 40
